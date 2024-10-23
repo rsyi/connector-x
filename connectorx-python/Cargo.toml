@@ -13,12 +13,12 @@ readme = "README.md"
 
 [dependencies]
 anyhow = "1"
-arrow = { version = "46" }
-arrow2 = {version = "0.17", default-features = false}
+arrow = { version = "52.2" }
+arrow2 = { version = "0.17", default-features = false }
 bitfield = "0.13"
 bytes = "1.4"
 chrono = "0.4"
-connectorx = {path = "../connectorx", default-features = false}
+connectorx = { path = "../connectorx", default-features = false }
 env_logger = "0.9"
 fehler = "1"
 itertools = "0.10"
@@ -27,17 +27,21 @@ libc = "0.2"
 log = "0.4"
 ndarray = "0.15"
 numpy = "0.21"
-openssl = {version = "0.10", features = ["vendored"]}
-postgres = {version = "0.19", features = ["with-chrono-0_4", "with-uuid-0_8", "with-serde_json-1"]}
-postgres-native-tls = {version = "0.5"}
-postgres-openssl = {version = "0.5.0"}
-pyo3 = {version = "0.21", default-features = false, features = ["macros"]}
+openssl = { version = "0.10", features = ["vendored"] }
+postgres = { version = "0.19", features = [
+  "with-chrono-0_4",
+  "with-uuid-0_8",
+  "with-serde_json-1",
+] }
+postgres-native-tls = { version = "0.5" }
+postgres-openssl = { version = "0.5.0" }
+pyo3 = { version = "0.21", default-features = false, features = ["macros"] }
 pyo3-built = "0.5"
-rust_decimal = {version = "1", features = ["db-postgres"]}
+rust_decimal = { version = "1", features = ["db-postgres"] }
 serde_json = "1"
 sqlparser = "0.37"
 thiserror = "1"
-tokio = {version = "1", features = ["rt", "rt-multi-thread", "net"]}
+tokio = { version = "1", features = ["rt", "rt-multi-thread", "net"] }
 tokio-util = "0.6"
 url = "2"
 urlencoding = "2.1"
@@ -45,14 +49,14 @@ uuid = "0.8"
 rayon = "1"
 
 [build-dependencies]
-built = {version = "0.5", features = ["chrono"]}
-pyo3-build-config = {version = "0.21", features = ["resolve-config"]}
+built = { version = "0.5", features = ["chrono"] }
+pyo3-build-config = { version = "0.21", features = ["resolve-config"] }
 
 [dev-dependencies]
 criterion = "0.3"
 criterion-macro = "0.3"
 iai = "0.1"
-pprof = {version = "0.5", features = ["flamegraph", "criterion", "protobuf"]}
+pprof = { version = "0.5", features = ["flamegraph", "criterion", "protobuf"] }
 rayon = "1"
 
 [lints.rust]
@@ -64,7 +68,15 @@ name = "connectorx"
 
 [features]
 branch = ["connectorx/branch"]
-default = ["extension", "fptr", "nbstr", "dsts", "srcs", "federation", "fed_exec"]
+default = [
+  "extension",
+  "fptr",
+  "nbstr",
+  "dsts",
+  "srcs",
+  "federation",
+  "fed_exec",
+]
 dsts = ["connectorx/dst_arrow", "connectorx/dst_arrow2"]
 executable = ["pyo3/auto-initialize"]
 extension = ["pyo3/extension-module"]
